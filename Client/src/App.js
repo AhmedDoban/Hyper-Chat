@@ -12,8 +12,8 @@ function App() {
 
   useEffect(() => {
     const Login = localStorage.getItem("Hyper_Chat_Login");
-    if (Login == null) {
-      SetLogin(false);
+    if (Login !== null) {
+      SetLogin(true);
     }
   }, []);
 

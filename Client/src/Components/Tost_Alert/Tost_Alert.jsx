@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const Tost_Alert = (msg, type) => {
+const Tost_Alert = (type, msg) => {
   const setting = {
     position: "top-right",
     autoClose: 5000,

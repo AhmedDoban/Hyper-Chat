@@ -26,27 +26,56 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Login .card {
   position: relative;
-  width: 350px;
-  background-color: var(--white-color);
+  backdrop-filter: blur(500px);
   border-radius: 0.2em;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
   gap: 10px;
   box-shadow: var(--main-box-shadow);
   transition: var(--main-transition);
+  max-width: 100%;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Login card left
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Login .card .left {
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+}
+.Login .card .left img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 776px) {
+  .Login .card .left {
+    display: none;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Login card right
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Login .card .right {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+  max-width: 100%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Login card header
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Login .card .header {
+.Login .card .right .header {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 20px 0;
 }
-.Login .card .header h1 {
+.Login .card .right .header h1 {
   position: relative;
   font-size: 35px;
   margin: 0;
@@ -57,20 +86,10 @@
   gap: 15px;
   color: var(--dark-color);
 }
-.Login .card .header h1 img {
-  position: relative;
-  width: 35px;
-  height: 35px;
-}
-.Login .card .header p {
-  font-size: 12px;
-  position: relative;
-  text-align: center;
-}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Login card input box
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Login .card .input-box {
+.Login .card .right .input-box {
   position: relative;
   width: 100%;
   display: flex;
@@ -78,7 +97,7 @@
   flex-direction: row-reverse;
   background-color: var(--primary-bg-color);
 }
-.Login .card .input-box input {
+.Login .card .right .input-box input {
   position: relative;
   width: 100%;
   border: 0;
@@ -87,43 +106,38 @@
   cursor: pointer;
   background-color: transparent;
 }
-.Login .card .input-box label {
+.Login .card .right .input-box label {
   position: relative;
   transition: var(--main-transition);
   padding: 10px;
   color: var(--dark-color);
 }
-.Login .card .input-box input:focus + label {
-  color: #000;
+.Login .card .right .input-box input:focus + label {
+  color: var(--purple-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Login card input box button
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Login .card .input-button {
+.Login .card .right .input-button {
   position: relative;
   width: 100%;
 }
-.Login .card .input-button button {
+.Login .card .right .input-button button {
   position: relative;
   width: 100%;
   padding: 6px;
   margin-top: 15px;
   border: 0;
   color: var(--white-color);
-  box-shadow: var(--blue-box-shadow);
   cursor: pointer;
   opacity: 1;
   transition: var(--main-transition);
-  background: linear-gradient(
-    90deg,
-    rgba(145, 0, 255, 1) 0%,
-    rgba(255, 7, 212, 1) 100%
-  );
+  background: linear-gradient(90deg, #c6c6c6 0%, var(--purple-color) 100%);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Login card or-other-login
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Login .card .or-other-login {
+.Login .card .right .or-other-login {
   position: relative;
   width: 100%;
   margin: 15px 0;
@@ -132,7 +146,7 @@
   align-items: center;
   font-size: 16px;
 }
-.Login .card .or-other-login::before {
+.Login .card .right .or-other-login::before {
   position: absolute;
   content: "";
   width: 33%;
@@ -141,7 +155,7 @@
   background-color: var(--main-p-color);
 }
 
-.Login .card .or-other-login::after {
+.Login .card .right .or-other-login::after {
   position: absolute;
   content: "";
   width: 33%;
@@ -153,31 +167,38 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Login card input-other-options
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Login .card .input-other-options {
+.Login .card .right .input-other-options {
   position: relative;
   display: flex;
   justify-content: center;
   gap: 15px;
   align-items: center;
 }
-.Login .card .input-other-options i {
+.Login .card .right .input-other-options i {
   position: relative;
   width: 30px;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--main-p-color);
+  border: 2px solid var(--main-p-color);
+  color: var(--main-p-color);
+  border-radius: 5px;
   cursor: pointer;
   transition: var(--main-transition);
 }
-.Login .card .input-other-options i:hover {
+.Login .card .right .input-other-options i:hover {
   color: var(--main-color);
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
 }
-.Login .card .Link_page {
+.Login .card .right .Link_page {
   position: relative;
-  font-size: 12px;
+  font-size: 12px !important;
+  color: var(--main-color) !important;
   transition: var(--main-transition);
   align-self: center;
+}
+.Login .card .right .Link_page p {
+  font-size: 12px;
+  color: var(--main-color);
 }

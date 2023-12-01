@@ -13,8 +13,8 @@
   background-size: cover;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register conatiner
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+# Register conatiner
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Register .container {
   position: relative;
   display: flex;
@@ -22,31 +22,60 @@
   align-items: center;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register card
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+# Register card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Register .card {
   position: relative;
-  width: 350px;
-  background-color: var(--white-color);
+  backdrop-filter: blur(500px);
   border-radius: 0.2em;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
   gap: 10px;
   box-shadow: var(--main-box-shadow);
   transition: var(--main-transition);
+  max-width: 100%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register card header
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Register .card .header {
+# Register card left
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .card .left {
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+}
+.Register .card .left img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 776px) {
+  .Register .card .left {
+    display: none;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Register card right
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .card .right {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+  max-width: 100%;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Register card header
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .card .right .header {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 20px 0;
 }
-.Register .card .header h1 {
+.Register .card .right .header h1 {
   position: relative;
   font-size: 35px;
   margin: 0;
@@ -57,20 +86,15 @@
   gap: 15px;
   color: var(--dark-color);
 }
-.Register .card .header h1 img {
-  position: relative;
-  width: 35px;
-  height: 35px;
-}
-.Register .card .header p {
-  font-size: 12px;
-  position: relative;
-  text-align: center;
-}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register card input box
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Register .card .input-box {
+# Register card input box
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .card .right .input-flex {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+.Register .card .right .input-box {
   position: relative;
   width: 100%;
   display: flex;
@@ -78,7 +102,7 @@
   flex-direction: row-reverse;
   background-color: var(--primary-bg-color);
 }
-.Register .card .input-box input {
+.Register .card .right .input-box input {
   position: relative;
   width: 100%;
   border: 0;
@@ -87,43 +111,38 @@
   cursor: pointer;
   background-color: transparent;
 }
-.Register .card .input-box label {
+.Register .card .right .input-box label {
   position: relative;
   transition: var(--main-transition);
   padding: 10px;
   color: var(--dark-color);
 }
-.Register .card .input-box input:focus + label {
-  color: #000;
+.Register .card .right .input-box input:focus + label {
+  color: var(--purple-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register card input box button
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Register .card .input-button {
+# Register card input box button
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .card .right .input-button {
   position: relative;
   width: 100%;
 }
-.Register .card .input-button button {
+.Register .card .right .input-button button {
   position: relative;
   width: 100%;
   padding: 6px;
   margin-top: 15px;
   border: 0;
   color: var(--white-color);
-  box-shadow: var(--blue-box-shadow);
   cursor: pointer;
   opacity: 1;
   transition: var(--main-transition);
-  background: linear-gradient(
-    90deg,
-    rgba(145, 0, 255, 1) 0%,
-    rgba(255, 7, 212, 1) 100%
-  );
+  background: linear-gradient(90deg, #c6c6c6 0%, var(--purple-color) 100%);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register card or-other-Register
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Register .card .or-other-Register {
+# Register card or-other-Register
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .card .right .or-other-Register {
   position: relative;
   width: 100%;
   margin: 15px 0;
@@ -132,7 +151,7 @@
   align-items: center;
   font-size: 16px;
 }
-.Register .card .or-other-Register::before {
+.Register .card .right .or-other-Register::before {
   position: absolute;
   content: "";
   width: 33%;
@@ -141,7 +160,7 @@
   background-color: var(--main-p-color);
 }
 
-.Register .card .or-other-Register::after {
+.Register .card .right .or-other-Register::after {
   position: absolute;
   content: "";
   width: 33%;
@@ -151,33 +170,40 @@
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register card input-other-options
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Register .card .input-other-options {
+# Register card input-other-options
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .card .right .input-other-options {
   position: relative;
   display: flex;
   justify-content: center;
   gap: 15px;
   align-items: center;
 }
-.Register .card .input-other-options i {
+.Register .card .right .input-other-options i {
   position: relative;
   width: 30px;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--main-p-color);
+  border: 2px solid var(--main-p-color);
+  color: var(--main-p-color);
+  border-radius: 5px;
   cursor: pointer;
   transition: var(--main-transition);
 }
-.Register .card .input-other-options i:hover {
+.Register .card .right .input-other-options i:hover {
   color: var(--main-color);
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
 }
-.Register .card .Link_page {
+.Register .card .right .Link_page {
   position: relative;
-  font-size: 12px;
+  font-size: 12px !important;
+  color: var(--main-color) !important;
   transition: var(--main-transition);
   align-self: center;
+}
+.Register .card .right .Link_page p {
+  font-size: 12px;
+  color: var(--main-color);
 }
