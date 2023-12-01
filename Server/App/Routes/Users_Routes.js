@@ -15,7 +15,7 @@ Router.route("/Login").post(
       .withMessage("Email is not Valid"),
     body("password")
       .notEmpty()
-      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gi)
+      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g)
       .withMessage("Password is not Valid"),
   ],
   Users_controllers.User_Login
@@ -30,7 +30,7 @@ Router.route("/Register").post(
       .withMessage("Email is not Valid"),
     body("password")
       .notEmpty()
-      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gi)
+      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g)
       .withMessage("Password is not Valid"),
     body("FirstName").notEmpty().withMessage("First Name is not Valid"),
     body("LastName").notEmpty().withMessage("Last Name is not Valid"),
