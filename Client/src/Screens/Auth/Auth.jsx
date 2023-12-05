@@ -4,6 +4,7 @@ import "./Auth.css";
 import { Route, Routes } from "react-router-dom";
 import Tost_Alert from "../../Components/Tost_Alert/Tost_Alert";
 import axios from "axios";
+import Home from "./Home/Home.jsx";
 
 export const UserContext = createContext();
 function Auth(props) {
@@ -44,8 +45,9 @@ function Auth(props) {
         <Sidebar SetLogin={props.SetLogin} />
         <div className="content">
           <Routes>
-            <Route path="" />
-            <Route path="/Chat" />
+            <Route path="" element={<Home />} />
+            <Route path="/Chat/:id" />
+            <Route path="*" element={<Home />} />
           </Routes>
         </div>
       </div>

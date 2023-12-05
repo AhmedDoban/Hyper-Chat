@@ -1,0 +1,33 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Home
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.Home .conatiner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.Home .conatiner h1 {
+  font-size: 18px;
+  color: var(--dark-color);
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # PlayerHome
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Home .conatiner .PlayerHome {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}

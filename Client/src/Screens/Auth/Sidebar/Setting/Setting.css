@@ -52,5 +52,5 @@
   transition: var(--main-transition);
 }
 .Sidebar .Setting .Logout:hover {
-  color: var(--main-color);
+  color: var(--image-color);
 }

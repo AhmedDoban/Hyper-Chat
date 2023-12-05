@@ -8,3 +8,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+.Auth .content {
+  position: relative;
+  width: 100%;
+}
