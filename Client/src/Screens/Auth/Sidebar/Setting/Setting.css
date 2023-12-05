@@ -1,0 +1,56 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Setting  
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Sidebar .Setting {
+  position: relative;
+  width: 100%;
+  height: 77px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+  border-bottom: 3px solid var(--white-color);
+  transition: var(--main-transition);
+}
+.Sidebar .Setting .logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Sidebar .Setting .img-box {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  font-weight: bold;
+}
+.Sidebar .Setting .img-box img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.Sidebar .Setting h5 {
+  position: relative;
+  color: var(--dark-color);
+  font-size: 15px;
+  transition: var(--main-transition);
+}
+.Sidebar .Setting .Logout {
+  position: relative;
+  color: var(--purple-color);
+  cursor: pointer;
+  font-size: 17px;
+  transition: var(--main-transition);
+}
+.Sidebar .Setting .Logout:hover {
+  color: var(--main-color);
+}

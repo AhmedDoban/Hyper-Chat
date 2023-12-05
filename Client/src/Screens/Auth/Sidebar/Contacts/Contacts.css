@@ -1,0 +1,51 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Contacts
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Contacts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Contacts box
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Contacts .box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  transition: var(--main-transition);
+}
+.Contacts .box.active,
+.Contacts .box:hover {
+  position: relative;
+  background-color: #d5d5d5;
+}
+.Contacts .box .img-box {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--image-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  font-weight: bold;
+}
+.Contacts .box .img-box img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.Contacts .box h5 {
+  position: relative;
+  color: var(--dark-color);
+  font-size: 15px;
+}

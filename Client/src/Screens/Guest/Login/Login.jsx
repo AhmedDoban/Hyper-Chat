@@ -89,9 +89,9 @@ function Login(props) {
               </div>
               <p className="or-other-login">login in with</p>
               <div className="input-other-options">
-                <i class="fa-brands fa-google" />
-                <i class="fa-brands fa-facebook-f" />
-                <i class="fa-brands fa-twitter" />
+                <i className="fa-brands fa-google" />
+                <i className="fa-brands fa-facebook-f" />
+                <i className="fa-brands fa-twitter" />
               </div>
               <Link to="register" className="Link_page">
                 <p>don't have an account ?</p>
