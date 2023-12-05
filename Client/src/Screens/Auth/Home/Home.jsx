@@ -11,10 +11,7 @@ function Home() {
             autoplay={true}
             loop={true}
             controls={false}
-            src={require(`../../../Image/Home/RandomChat-${+(
-              Math.random() * 4 +
-              1
-            ).toFixed(0)}.json`)}
+            src={require(`../../../Image/NoChat.json`)}
             className="PlayerHome"
           />
           <h1>Welcome again ! Seclect an chat to start</h1>
