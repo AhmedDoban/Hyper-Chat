@@ -6,6 +6,13 @@ import Verify_User from "../Utils/Verify_User.js";
 
 const Router = express.Router();
 
+// Routes Handelar /API/Users/User/:id
+Router.route("/User/:id").post(
+  JWT.Verify_Token,
+  [body("Token").notEmpty().withMessage("Token is not Valid")],
+  Users_controllers.GetSpecificUSer
+);
+
 // Routes Handelar /API/Users/Login
 Router.route("/Login").post(
   [

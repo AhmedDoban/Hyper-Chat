@@ -5,6 +5,49 @@ import JWT from "../Utils/JWT.js";
 import { validationResult } from "express-validator";
 
 // login user authentication
+const GetSpecificUSer = async (Req, Res) => {
+  const { Token } = Req.body;
+  const { id } = Req.params;
+
+  // Body Validation Before Searching in the database to increase performance
+  const Errors = validationResult(Req);
+  if (!Errors.isEmpty()) {
+    return Res.json({
+      Status: "Faild",
+      message: "Can't get data please Try again later",
+      data: Errors.array().map((arr) => arr.msg),
+    });
+  }
+
+  try {
+    // Searching in the database with email may be email is wrong
+    const USER = await Users_Model.findOne({ Token, _id: id }, { __v: 0 });
+    if (USER === null) {
+      // invalid data in the body and not match the data in the database
+      return Res.json({
+        Status: "Faild",
+        message: "Your id not Valid .Please try again !",
+      });
+    } else {
+      // return ther user data
+      return Res.json({
+        Status: "Success",
+        Data: await Users_Model.findOne(
+          { Token, _id: id },
+          { __v: 0, password: 0 }
+        ),
+      });
+    }
+  } catch (err) {
+    // Error in serching handelar
+    return Res.json({
+      Status: "Faild",
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
+// login user authentication
 const User_Login = async (Req, Res) => {
   const { email, password } = Req.body;
   // Body Validation Before Searching in the database to increase performance
@@ -108,4 +151,5 @@ const User_Register = async (Req, Res) => {
 export default {
   User_Login,
   User_Register,
+  GetSpecificUSer,
 };
