@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Sidebar.css";
 import Contacts from "./Contacts/Contacts";
 import Setting from "./Setting/Setting";
+import { NavLink } from "react-router-dom";
 
 function Sidebar(props) {
   const [Active, SetActive] = useState(false);
@@ -19,7 +20,12 @@ function Sidebar(props) {
             <img src={require("../../../Image/icon.png")} alt="icon" />
             <h1>Hyper Chat</h1>
           </div>
-          <i className="fa-regular fa-pen-to-square Create" />
+          <NavLink to="/Create">
+            <i className="fa-regular fa-pen-to-square " />
+          </NavLink>
+          <NavLink to="/Requests">
+            <i className="fa-regular fa-bell" />
+          </NavLink>
         </div>
         {/******************************End *******************************/}
 

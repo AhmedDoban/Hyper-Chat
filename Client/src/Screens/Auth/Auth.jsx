@@ -1,10 +1,13 @@
-import React, { createContext, useState } from "react";
+import React, { Suspense, createContext, useState, lazy } from "react";
 import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./Auth.css";
 import { Route, Routes } from "react-router-dom";
 import Tost_Alert from "../../Components/Tost_Alert/Tost_Alert";
 import axios from "axios";
-import Home from "./Home/Home.jsx";
+import Loading from "./../../Components/Loading/Loading";
+const Home = lazy(() => import("./Home/Home.jsx"));
+const Create = lazy(() => import("./Create/Create.jsx"));
+const Request = lazy(() => import("./Request/Request.jsx"));
 
 export const UserContext = createContext();
 function Auth(props) {
@@ -26,7 +29,6 @@ function Auth(props) {
           )
           .then((res) => {
             if (res.data.Status === "Faild") {
-              console.log(res.data);
               Tost_Alert("error", res.data.message);
             } else {
               SetUser(res.data.Data);
@@ -34,6 +36,8 @@ function Auth(props) {
           });
       } catch (err) {
         Tost_Alert("error", "Sorry , Can't get your data !");
+        localStorage.clear();
+        props.SetLogin((prv) => !prv);
       }
     };
     GEtUSer();
@@ -41,16 +45,20 @@ function Auth(props) {
 
   return (
     <UserContext.Provider value={User}>
-      <div className="Auth">
-        <Sidebar SetLogin={props.SetLogin} />
-        <div className="content">
-          <Routes>
-            <Route path="" element={<Home />} />
-            <Route path="/Chat/:id" />
-            <Route path="*" element={<Home />} />
-          </Routes>
+      <Suspense fallback={<Loading />}>
+        <div className="Auth">
+          <Sidebar SetLogin={props.SetLogin} />
+          <div className="content">
+            <Routes>
+              <Route path="" element={<Home />} />
+              <Route path="/Chat/:id" />
+              <Route path="/Create" element={<Create />} />
+              <Route path="/Requests" element={<Request />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </div>
         </div>
-      </div>
+      </Suspense>
     </UserContext.Provider>
   );
 }

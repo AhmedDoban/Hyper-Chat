@@ -1,0 +1,148 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Create
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Create {
+  position: relative;
+  width: 100%;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Create head
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Create .head {
+  padding: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 15px;
+  height: 77px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-bottom: 3px solid var(--white-color);
+  backdrop-filter: blur(50px);
+}
+.Create .head h1 {
+  color: var(--dark-color);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: fit-content;
+}
+
+.Create .head .input-box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  background-color: var(--white-color);
+  padding: 0 10px 0 0;
+  border-radius: 0.5em;
+}
+.Create .head .input-box input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 0;
+  background-color: var(--white-color);
+  color: var(--dark-color);
+  font-size: 16px;
+  border-radius: 0.5em;
+}
+.Create .head .input-box i {
+  position: relative;
+  color: var(--dark-color);
+  cursor: pointer;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Create container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Create .content {
+  position: relative;
+  height: calc(100vh - 77px);
+  overflow-y: auto;
+}
+.Create .conatiner-cards {
+  position: relative;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+    # Create card
+    ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Create .conatiner-cards .card {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(50px);
+}
+.Create .conatiner-cards .card .img-box {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--purple-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  font-weight: bold;
+}
+.Create .conatiner-cards .card .img-box img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.Create .conatiner-cards .card h5 {
+  position: relative;
+  color: var(--dark-color);
+  font-size: 15px;
+  transition: var(--main-transition);
+}
+.Create .conatiner-cards .card .actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.Create .conatiner-cards .card .actions i {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 50%;
+  color: var(--white-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+  opacity: 0.5;
+}
+.Create .conatiner-cards .card .actions i:nth-child(1) {
+  background-color: var(--main-color);
+}
+.Create .conatiner-cards .card .actions i:nth-child(2) {
+  background-color: red;
+}
+.Create .conatiner-cards .card .actions i:nth-child(1):hover {
+  opacity: 1;
+}
+.Create .conatiner-cards .card .actions i:nth-child(2):hover {
+  opacity: 1;
+}

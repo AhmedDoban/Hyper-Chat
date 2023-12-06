@@ -15,7 +15,7 @@
   background: #767676;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color);
+  background: var(--main-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # input General
@@ -37,7 +37,7 @@ ul {
   list-style: none;
 }
 a {
-  color: var(--primary-color);
+  color: var(--main-color);
   text-decoration: none;
 }
 a:hover,

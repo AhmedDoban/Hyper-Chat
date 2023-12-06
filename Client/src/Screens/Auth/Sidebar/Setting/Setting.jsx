@@ -2,13 +2,16 @@ import React, { useContext } from "react";
 import "./Setting.css";
 import { UserContext } from "../../Auth";
 import { GetName } from "../../../../Utils/GetName";
+import { useNavigate } from "react-router-dom";
 
 function Setting(props) {
   const User = useContext(UserContext);
+  const Navigate = useNavigate();
 
   const Handle_Logout = () => {
     localStorage.clear();
     props.SetLogin((prv) => !prv);
+    Navigate("/");
   };
 
   return (
@@ -25,7 +28,7 @@ function Setting(props) {
 
           <h5 className="name">
             {User.FirstName} {""}
-            {User.FirstName}
+            {User.LastName}
           </h5>
         </div>
         <i

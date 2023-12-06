@@ -39,6 +39,7 @@
     position: fixed;
     top: 0;
     left: -250px;
+    z-index: 5;
   }
   .Sidebar.active {
     left: 0;
@@ -77,13 +78,14 @@
   font-size: 20px;
   transition: var(--main-transition);
 }
-.Sidebar .head .Create {
+.Sidebar .head a {
   position: relative;
   cursor: pointer;
   color: var(--dark-color);
   font-size: 17px;
   transition: var(--main-transition);
 }
-.Sidebar .head .Create:hover {
+.Sidebar .head a:hover,
+.Sidebar .head a.active {
   color: var(--purple-color);
 }
