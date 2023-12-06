@@ -6,7 +6,7 @@ const Reuest_Model = mongoose.Schema(
     To: { required: true, type: mongoose.Schema.ObjectId },
   },
   {
-    collection: "Reuests",
+    collection: "Requests",
   }
 );
 

@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import JWT from "../Utils/JWT.js";
 import { validationResult } from "express-validator";
 
-// login user authentication
+// Get User
 const GetSpecificUSer = async (Req, Res) => {
   const { Token } = Req.body;
   const { id } = Req.params;
