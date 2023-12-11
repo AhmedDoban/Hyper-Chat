@@ -10,34 +10,6 @@ function Create() {
   const [Creates, SetCreates] = useState([]);
   const [Search, SetSearch] = useState("");
 
-  useEffect(() => {
-    // const GetCreates = async () => {
-    //   try {
-    //     await axios
-    //       .post(
-    //         `${process.env.REACT_APP_API}/Create/GetAllCreates`,
-    //         { _id: User._id },
-    //         {
-    //           headers: {
-    //             Authorization: User.Token,
-    //           },
-    //         }
-    //       )
-    //       .then((res) => {
-    //         if (res.data.Status === "Faild") {
-    //           Tost_Alert("error", res.data.message);
-    //         } else {
-    //           console.log(res.data.Data);
-    //           SetCreates(res.data.Data);
-    //         }
-    //       });
-    //   } catch (err) {
-    //     Tost_Alert("error", "Sorry , Can't get your data !");
-    //   }
-    // };
-    // GetCreates();
-  }, [User._id, User.Token]);
-
   const HandleAddRequest = async (_id) => {
     try {
       await axios
@@ -54,7 +26,87 @@ function Create() {
           if (res.data.Status === "Faild") {
             Tost_Alert("error", res.data.message);
           } else {
-            Tost_Alert("success", res.data.message);
+            const NewCreates = [...Creates];
+            const Find = NewCreates.find((Search) => Search._id === _id);
+            const FindIndex = NewCreates.findIndex(
+              (Search) => Search._id === _id
+            );
+
+            NewCreates[FindIndex] = {
+              ...Find,
+              If_User_Request: !Find.If_User_Request,
+            };
+            SetCreates(NewCreates);
+          }
+        });
+    } catch (err) {
+      Tost_Alert("error", "Sorry , Can't get your data !");
+    }
+  };
+
+  const HandleDeleteRequest = async (_id) => {
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/Request/Delete`,
+          { From: User._id, To: _id },
+          {
+            headers: {
+              Authorization: User.Token,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status === "Faild") {
+            Tost_Alert("error", res.data.message);
+          } else {
+            const NewCreates = [...Creates];
+            const Find = NewCreates.find((Search) => Search._id === _id);
+            const FindIndex = NewCreates.findIndex(
+              (Search) => Search._id === _id
+            );
+
+            NewCreates[FindIndex] = {
+              ...Find,
+              If_User_Request: false,
+              If_User_Requested_To: false,
+              If_User_Friend: false,
+            };
+            SetCreates(NewCreates);
+          }
+        });
+    } catch (err) {
+      Tost_Alert("error", "Sorry , Can't get your data !");
+    }
+  };
+
+  const HandleUpdateRequest = async (_id) => {
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/Request/Update`,
+          { From: User._id, To: _id },
+          {
+            headers: {
+              Authorization: User.Token,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status === "Faild") {
+            Tost_Alert("error", res.data.message);
+          } else {
+            const NewCreates = [...Creates];
+            const Find = NewCreates.find((Search) => Search._id === _id);
+            const FindIndex = NewCreates.findIndex(
+              (Search) => Search._id === _id
+            );
+
+            NewCreates[FindIndex] = {
+              ...Find,
+              If_User_Friend: !Find.If_User_Friend,
+            };
+            SetCreates(NewCreates);
           }
         });
     } catch (err) {
@@ -78,14 +130,14 @@ function Create() {
           if (res.data.Status === "Faild") {
             Tost_Alert("error", res.data.message);
           } else {
-            console.log(res.data.data);
-            // SetCreates("success", res.data.data);
+            SetCreates(res.data.data);
           }
         });
     } catch (err) {
       Tost_Alert("error", "Sorry , Can't get your data !");
     }
   };
+
   return (
     <React.Fragment>
       <div className="Create">
@@ -110,7 +162,7 @@ function Create() {
         <div className="content">
           <div className="conatiner-cards">
             {Creates.map((user) => (
-              <div className="card">
+              <div className="card" key={user._id}>
                 <div className="img-box">
                   {user.Logo ? (
                     <img src={user.Logo} alt="logo" />
@@ -122,10 +174,47 @@ function Create() {
                   {user.FirstName} {""}
                   {user.LastName}
                 </h5>
-                <div className="actions">
-                  <i className="fa-solid fa-check" />
-                  <i className="fa-solid fa-xmark" />
-                </div>
+                {user.If_User_Requested_To && !user.If_User_Friend && (
+                  <div className="actions">
+                    <i
+                      className="fa-solid fa-check"
+                      onClick={() => HandleUpdateRequest(user._id)}
+                    />
+                    <i
+                      className="fa-solid fa-xmark"
+                      onClick={() => HandleDeleteRequest(user._id)}
+                    />
+                  </div>
+                )}
+                {user.If_User_Request && !user.If_User_Friend && (
+                  <div
+                    className="deleteFriend"
+                    onClick={() => HandleDeleteRequest(user._id)}
+                  >
+                    <span>Delete Request</span>
+                    <i className="fa-solid fa-user-minus" />
+                  </div>
+                )}
+                {user.If_User_Friend && (
+                  <div
+                    className="deleteFriend"
+                    onClick={() => HandleDeleteRequest(user._id)}
+                  >
+                    <span>Delete Friend</span>
+                    <i className="fa-solid fa-user-minus" />
+                  </div>
+                )}
+                {!user.If_User_Friend &&
+                  !user.If_User_Requested_To &&
+                  !user.If_User_Request && (
+                    <div
+                      className="AddFriend"
+                      onClick={() => HandleAddRequest(user._id)}
+                    >
+                      <span>Add Friend</span>
+                      <i className="fa-solid fa-user-plus" />
+                    </div>
+                  )}
               </div>
             ))}
           </div>

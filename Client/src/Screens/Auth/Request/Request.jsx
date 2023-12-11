@@ -26,8 +26,7 @@ function Request() {
             if (res.data.Status === "Faild") {
               Tost_Alert("error", res.data.message);
             } else {
-              console.log(res.data.Data);
-              SetRequests(res.data.Data);
+              SetRequests(res.data.data);
             }
           });
       } catch (err) {
@@ -48,23 +47,25 @@ function Request() {
         </div>
         <div className="content">
           <div className="conatiner-cards">
-            <div className="card">
-              <div className="img-box">
-                {UserContext.Logo ? (
-                  <img src={User.Logo} alt="logo" />
-                ) : (
-                  GetName(User.FirstName, User.LastName)
-                )}
+            {Requests.map((Req) => (
+              <div className="card" key={Req._id}>
+                <div className="img-box">
+                  {UserContext.Logo ? (
+                    <img src={User.Logo} alt="logo" />
+                  ) : (
+                    GetName(Req.User.FirstName, Req.User.LastName)
+                  )}
+                </div>
+                <h5 className="name">
+                  {Req.User.FirstName} {""}
+                  {Req.User.LastName}
+                </h5>
+                <div className="actions">
+                  <i className="fa-solid fa-check" />
+                  <i className="fa-solid fa-xmark" />
+                </div>
               </div>
-              <h5 className="name">
-                {User.FirstName} {""}
-                {User.LastName}
-              </h5>
-              <div className="actions">
-                <i className="fa-solid fa-check" />
-                <i className="fa-solid fa-xmark" />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

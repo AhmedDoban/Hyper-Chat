@@ -134,10 +134,12 @@
   transition: var(--main-transition);
   opacity: 0.5;
 }
-.Create .conatiner-cards .card .actions i:nth-child(1) {
+.Create .conatiner-cards .card .actions i:nth-child(1),
+.Create .conatiner-cards .card .AddFriend {
   background-color: var(--main-color);
 }
-.Create .conatiner-cards .card .actions i:nth-child(2) {
+.Create .conatiner-cards .card .actions i:nth-child(2),
+.Create .conatiner-cards .card .deleteFriend {
   background-color: red;
 }
 .Create .conatiner-cards .card .actions i:nth-child(1):hover {
@@ -145,4 +147,37 @@
 }
 .Create .conatiner-cards .card .actions i:nth-child(2):hover {
   opacity: 1;
+}
+.Create .conatiner-cards .card .deleteFriend,
+.Create .conatiner-cards .card .AddFriend {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 12px;
+  cursor: pointer;
+  border-radius: 0.5em;
+  color: var(--white-color);
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0.5;
+  transition: var(--main-transition);
+}
+.Create .conatiner-cards .card .deleteFriend:hover,
+.Create .conatiner-cards .card .AddFriend:hover {
+  opacity: 1;
+}
+.Create .conatiner-cards .card .deleteFriend i,
+.Create .conatiner-cards .card .AddFriend i {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 50%;
+  color: var(--white-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+  opacity: 0.5;
 }
