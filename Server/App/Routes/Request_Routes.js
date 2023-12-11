@@ -40,4 +40,14 @@ Router.route("/Delete").post(
   Request_controllers.Delete_Request
 );
 
+// Routes Handelar /API/delte/Create
+Router.route("/Update").post(
+  JWT.Verify_Token,
+  [
+    body("From").notEmpty().withMessage("From is not Valid"),
+    body("To").notEmpty().withMessage("To is not Valid"),
+  ],
+  Request_controllers.Update_Request
+);
+
 export default Router;
