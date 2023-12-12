@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Create.css";
 import { UserContext } from "../Auth";
 import { GetName } from "../../../Utils/GetName";
 import Tost_Alert from "../../../Components/Tost_Alert/Tost_Alert";
 import axios from "axios";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 function Create() {
   const User = useContext(UserContext);
@@ -160,64 +161,79 @@ function Create() {
           </div>
         </div>
         <div className="content">
-          <div className="conatiner-cards">
-            {Creates.map((user) => (
-              <div className="card" key={user._id}>
-                <div className="img-box">
-                  {user.Logo ? (
-                    <img src={user.Logo} alt="logo" />
-                  ) : (
-                    GetName(user.FirstName, user.LastName)
-                  )}
-                </div>
-                <h5 className="name">
-                  {user.FirstName} {""}
-                  {user.LastName}
-                </h5>
-                {user.If_User_Requested_To && !user.If_User_Friend && (
-                  <div className="actions">
-                    <i
-                      className="fa-solid fa-check"
-                      onClick={() => HandleUpdateRequest(user._id)}
-                    />
-                    <i
-                      className="fa-solid fa-xmark"
-                      onClick={() => HandleDeleteRequest(user._id)}
-                    />
+          {Creates.length > 0 ? (
+            <div className="conatiner-cards">
+              {Creates.map((user) => (
+                <div className="card" key={user._id}>
+                  <div className="img-box">
+                    {user.Logo ? (
+                      <img src={user.Logo} alt="logo" />
+                    ) : (
+                      GetName(user.FirstName, user.LastName)
+                    )}
                   </div>
-                )}
-                {user.If_User_Request && !user.If_User_Friend && (
-                  <div
-                    className="deleteFriend"
-                    onClick={() => HandleDeleteRequest(user._id)}
-                  >
-                    <span>Delete Request</span>
-                    <i className="fa-solid fa-user-minus" />
-                  </div>
-                )}
-                {user.If_User_Friend && (
-                  <div
-                    className="deleteFriend"
-                    onClick={() => HandleDeleteRequest(user._id)}
-                  >
-                    <span>Delete Friend</span>
-                    <i className="fa-solid fa-user-minus" />
-                  </div>
-                )}
-                {!user.If_User_Friend &&
-                  !user.If_User_Requested_To &&
-                  !user.If_User_Request && (
-                    <div
-                      className="AddFriend"
-                      onClick={() => HandleAddRequest(user._id)}
-                    >
-                      <span>Add Friend</span>
-                      <i className="fa-solid fa-user-plus" />
+                  <h5 className="name">
+                    {user.FirstName} {""}
+                    {user.LastName}
+                  </h5>
+                  {user.If_User_Requested_To && !user.If_User_Friend && (
+                    <div className="actions">
+                      <i
+                        className="fa-solid fa-check"
+                        onClick={() => HandleUpdateRequest(user._id)}
+                      />
+                      <i
+                        className="fa-solid fa-xmark"
+                        onClick={() => HandleDeleteRequest(user._id)}
+                      />
                     </div>
                   )}
+                  {user.If_User_Request && !user.If_User_Friend && (
+                    <div
+                      className="deleteFriend"
+                      onClick={() => HandleDeleteRequest(user._id)}
+                    >
+                      <span>Delete Request</span>
+                      <i className="fa-solid fa-user-minus" />
+                    </div>
+                  )}
+                  {user.If_User_Friend && (
+                    <div
+                      className="deleteFriend"
+                      onClick={() => HandleDeleteRequest(user._id)}
+                    >
+                      <span>Delete Friend</span>
+                      <i className="fa-solid fa-user-minus" />
+                    </div>
+                  )}
+                  {!user.If_User_Friend &&
+                    !user.If_User_Requested_To &&
+                    !user.If_User_Request && (
+                      <div
+                        className="AddFriend"
+                        onClick={() => HandleAddRequest(user._id)}
+                      >
+                        <span>Add Friend</span>
+                        <i className="fa-solid fa-user-plus" />
+                      </div>
+                    )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="no-creates">
+              <div className="conatiner">
+                <Player
+                  autoplay={true}
+                  loop={true}
+                  controls={false}
+                  src={require(`../../../Image/looking.json`)}
+                  className="Player"
+                />
+                <h1>Looking for new Friend !!</h1>
               </div>
-            ))}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </React.Fragment>

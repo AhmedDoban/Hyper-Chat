@@ -64,6 +64,7 @@
   position: relative;
   height: calc(100vh - 77px);
   overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .Create .conatiner-cards {
   position: relative;
@@ -180,4 +181,36 @@
   cursor: pointer;
   transition: var(--main-transition);
   opacity: 0.5;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # no-creates
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.no-creates {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  height: 100%;
+}
+
+.no-creates .conatiner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.no-creates .conatiner h1 {
+  font-size: 18px;
+  color: var(--dark-color);
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Player
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.no-creates .conatiner .Player {
+  position: relative;
+  width: 350px;
+  height: 350px;
 }

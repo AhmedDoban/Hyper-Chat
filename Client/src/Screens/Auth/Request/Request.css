@@ -33,6 +33,7 @@
   position: relative;
   height: calc(100vh - 77px);
   overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .Request .conatiner-cards {
   position: relative;
@@ -114,4 +115,36 @@
 }
 .Request .conatiner-cards .card .actions i:nth-child(2):hover {
   opacity: 1;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # no-Requests
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.no-Requests {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  height: 100%;
+}
+
+.no-Requests .conatiner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.no-Requests .conatiner h1 {
+  font-size: 18px;
+  color: var(--dark-color);
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Player
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.no-Requests .conatiner .Player {
+  position: relative;
+  width: 350px;
+  height: 350px;
 }
