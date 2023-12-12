@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./ChatUserInfo.css";
 import { useParams } from "react-router-dom";
 import { GetName } from "../../../../Utils/GetName";
@@ -11,7 +11,7 @@ function ChatUserInfo(props) {
   const Params = useParams();
   const User = useContext(UserContext);
 
-  useState(() => {
+  useEffect(() => {
     const GEtUSer = async () => {
       try {
         await axios
@@ -36,7 +36,7 @@ function ChatUserInfo(props) {
       }
     };
     GEtUSer();
-  }, []);
+  }, [Params.id, User.Token]);
 
   return (
     <React.Fragment>
