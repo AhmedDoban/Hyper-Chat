@@ -1,0 +1,93 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Chat-body 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Chat-body {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  height: calc(100vh - 127px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.Chat-body::-webkit-scrollbar {
+  width: 5px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Chat-body  card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Chat-body .card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.Chat-body .card.Left {
+  align-self: flex-start;
+}
+.Chat-body .card.Right {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Chat-body  card img-box
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Chat-body .card .img-box {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  font-weight: bold;
+}
+.Chat-body .card.Left .img-box {
+  background-color: var(--purple-color);
+}
+.Chat-body .card .img-box img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Chat-body  card h1
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Chat-body .card h1 {
+  position: relative;
+  color: var(--dark-color);
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  padding: 8px 12px;
+  font-weight: normal;
+  min-width: 100px;
+  border-radius: 0.5em;
+}
+.Chat-body .card.Left h1 {
+  text-align: left;
+}
+.Chat-body .card.Right h1 {
+  text-align: right;
+}
+.Chat-body .card h1::before {
+  position: absolute;
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+
+  top: 50%;
+  transform: translateY(-50%);
+}
+.Chat-body .card.Left h1::before {
+  left: -20px;
+  border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
+}
+.Chat-body .card.Right h1::before {
+  right: -20px;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
+}

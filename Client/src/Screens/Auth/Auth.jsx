@@ -8,6 +8,7 @@ import Loading from "./../../Components/Loading/Loading";
 const Home = lazy(() => import("./Home/Home.jsx"));
 const Create = lazy(() => import("./Create/Create.jsx"));
 const Request = lazy(() => import("./Request/Request.jsx"));
+const Chat = lazy(() => import("./Chat/Chat.jsx"));
 
 export const UserContext = createContext();
 export const UserRequests = createContext();
@@ -55,7 +56,7 @@ function Auth(props) {
             <div className="content">
               <Routes>
                 <Route path="" element={<Home />} />
-                <Route path="/Chat/:id" />
+                <Route path="/Chat/:id" element={<Chat />} />
                 <Route path="/Create" element={<Create />} />
                 <Route
                   path="/Requests"

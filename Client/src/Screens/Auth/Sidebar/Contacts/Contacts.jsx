@@ -42,7 +42,11 @@ function Contacts(props) {
     <React.Fragment>
       <div className="Contacts">
         {Contacts.map((Contact) => (
-          <NavLink className="box" to={Contact.User._id}>
+          <NavLink
+            className="box"
+            to={`/Chat/${Contact.User._id}`}
+            key={Contact.User._id}
+          >
             <div className="img-box">
               {Contact.Logo ? (
                 <img src={Contact.Logo} alt="logo" />

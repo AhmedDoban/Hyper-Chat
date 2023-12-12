@@ -36,6 +36,11 @@
   align-items: center;
   color: var(--white-color);
   font-weight: bold;
+  transition: var(--main-transition);
+}
+.Contacts .box.active .img-box,
+.Contacts .box:hover .img-box {
+  background-color: var(--purple-color);
 }
 .Contacts .box .img-box img {
   position: relative;
