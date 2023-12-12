@@ -45,13 +45,122 @@ const Get_User_Request = async (Req, Res) => {
         },
       },
     ]);
-    console.log(SearchingRequest);
+
     return Res.json({
       Status: "Success",
       data: SearchingRequest,
     });
   } catch (err) {
     // Error in creation handelar
+    return Res.json({
+      Status: "Faild",
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
+// GET user Contacts
+const Get_User_Contacts = async (Req, Res) => {
+  const { _id } = Req.body;
+
+  // Body Validation Before Searching in the database to increase performance
+  const Errors = validationResult(Req);
+  if (!Errors.isEmpty()) {
+    return Res.json({
+      Status: "Faild",
+      message: "Can't create request please Try again later",
+      data: Errors.array().map((arr) => arr.msg),
+    });
+  }
+  try {
+    const Searching_To_Contacts = await Reuest_Model.aggregate([
+      {
+        $match: {
+          $or: [{ To: new mongoose.Types.ObjectId(_id), Accepted: true }],
+        },
+      },
+      {
+        $lookup: {
+          from: "Users",
+          localField: "From",
+          foreignField: "_id",
+          as: "User",
+        },
+      },
+      { $unwind: "$User" },
+      {
+        $project: {
+          __v: 0,
+          _id: 0,
+          "User.password": 0,
+          "User.__v": 0,
+          "User.Token": 0,
+        },
+      },
+    ]);
+    const Searching_From_Contacts = await Reuest_Model.aggregate([
+      {
+        $match: {
+          $or: [{ From: new mongoose.Types.ObjectId(_id), Accepted: true }],
+        },
+      },
+      {
+        $lookup: {
+          from: "Users",
+          localField: "To",
+          foreignField: "_id",
+          as: "User",
+        },
+      },
+      { $unwind: "$User" },
+      {
+        $project: {
+          __v: 0,
+          _id: 0,
+          "User.password": 0,
+          "User.__v": 0,
+          "User.Token": 0,
+        },
+      },
+    ]);
+    return Res.json({
+      Status: "Success",
+      data: [...Searching_To_Contacts, ...Searching_From_Contacts],
+    });
+  } catch (err) {
+    // Error in creation handelar
+    return Res.json({
+      Status: "Faild",
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
+// GET user Contacts
+const Get_User_Spacific_contact = async (Req, Res) => {
+  const { id } = Req.params;
+
+  try {
+    // Searching in the database with email may be email is wrong
+    const USER = await Users_Model.findOne({ _id: id }, { __v: 0 });
+    if (USER === null) {
+      // invalid data in the body and not match the data in the database
+      return Res.json({
+        Status: "Faild",
+        message: "Your id not Valid .Please try again !",
+      });
+    } else {
+      // return ther user data
+      return Res.json({
+        Status: "Success",
+        Data: await Users_Model.findOne(
+          { _id: id },
+          { __v: 0, password: 0, Token: 0 }
+        ),
+      });
+    }
+  } catch (err) {
+    // Error in serching handelar
     return Res.json({
       Status: "Faild",
       message: "Sorry Something went wrong please try again later !",
@@ -284,4 +393,6 @@ export default {
   Get_User_Request,
   Search_Request,
   Update_Request,
+  Get_User_Contacts,
+  Get_User_Spacific_contact,
 };

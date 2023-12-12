@@ -12,6 +12,17 @@ Router.route("/GetAllRequests").post(
   Request_controllers.Get_User_Request
 );
 
+// Routes Handelar /API/Request/GetContacts
+Router.route("/GetContacts").post(
+  JWT.Verify_Token,
+  [body("_id").notEmpty().withMessage("_id is not Valid")],
+  Request_controllers.Get_User_Contacts
+);
+// Routes Handelar /API/Request/GetContacts
+Router.route("/GetContacts/:id").post(
+  JWT.Verify_Token,
+  Request_controllers.Get_User_Spacific_contact
+);
 // Routes Handelar /API/Request/Search
 Router.route("/Search").post(
   JWT.Verify_Token,
