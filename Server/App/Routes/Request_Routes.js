@@ -18,10 +18,10 @@ Router.route("/GetContacts").post(
   [body("_id").notEmpty().withMessage("_id is not Valid")],
   Request_controllers.Get_User_Contacts
 );
-// Routes Handelar /API/Request/GetContacts
+// Routes Handelar /API/Request/GetContacts/:id
 Router.route("/GetContacts/:id").post(
   JWT.Verify_Token,
-  Request_controllers.Get_User_Spacific_contact
+  Request_controllers.Get_User_specific_contact
 );
 // Routes Handelar /API/Request/Search
 Router.route("/Search").post(
@@ -41,7 +41,7 @@ Router.route("/Create").post(
   Request_controllers.Create_Request
 );
 
-// Routes Handelar /API/delte/Create
+// Routes Handelar /API/Request/Delete
 Router.route("/Delete").post(
   JWT.Verify_Token,
   [
@@ -51,7 +51,7 @@ Router.route("/Delete").post(
   Request_controllers.Delete_Request
 );
 
-// Routes Handelar /API/delte/Create
+// Routes Handelar /API/Request/Update
 Router.route("/Update").post(
   JWT.Verify_Token,
   [

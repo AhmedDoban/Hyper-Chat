@@ -136,8 +136,8 @@ const Get_User_Contacts = async (Req, Res) => {
   }
 };
 
-// GET user Contacts
-const Get_User_Spacific_contact = async (Req, Res) => {
+// GET user specific Contacts
+const Get_User_specific_contact = async (Req, Res) => {
   const { id } = Req.params;
 
   try {
@@ -338,7 +338,7 @@ const Delete_Request = async (Req, Res) => {
   }
 };
 
-// delete request
+// update request
 const Update_Request = async (Req, Res) => {
   const { From, To } = Req.body;
 
@@ -387,6 +387,7 @@ const Update_Request = async (Req, Res) => {
     });
   }
 };
+
 export default {
   Create_Request,
   Delete_Request,
@@ -394,5 +395,5 @@ export default {
   Search_Request,
   Update_Request,
   Get_User_Contacts,
-  Get_User_Spacific_contact,
+  Get_User_specific_contact,
 };
