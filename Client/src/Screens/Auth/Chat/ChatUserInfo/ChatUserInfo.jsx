@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./ChatUserInfo.css";
 import { useParams } from "react-router-dom";
 import { GetName } from "../../../../Utils/GetName";
@@ -7,7 +7,6 @@ import Tost_Alert from "../../../../Components/Tost_Alert/Tost_Alert";
 import { UserContext } from "../../Auth";
 
 function ChatUserInfo(props) {
-  const [UserInfo, SetUSerInfo] = useState({});
   const Params = useParams();
   const User = useContext(UserContext);
 
@@ -28,7 +27,7 @@ function ChatUserInfo(props) {
             if (res.data.Status === "Faild") {
               Tost_Alert("error", res.data.message);
             } else {
-              SetUSerInfo(res.data.Data);
+              props.SetUSerInfo(res.data.Data);
             }
           });
       } catch (err) {
@@ -42,16 +41,16 @@ function ChatUserInfo(props) {
     <React.Fragment>
       <div className="ChatUserInfo">
         <div className="img-box">
-          {UserInfo.Logo ? (
-            <img src={UserInfo.User.Logo} alt="logo" />
+          {props.UserInfo.Logo ? (
+            <img src={props.UserInfo.User.Logo} alt="logo" />
           ) : (
-            GetName(UserInfo.FirstName, UserInfo.LastName)
+            GetName(props.UserInfo.FirstName, props.UserInfo.LastName)
           )}
         </div>
 
         <h1>
-          {UserInfo.FirstName} {""}
-          {UserInfo.LastName}
+          {props.UserInfo.FirstName} {""}
+          {props.UserInfo.LastName}
         </h1>
       </div>
     </React.Fragment>

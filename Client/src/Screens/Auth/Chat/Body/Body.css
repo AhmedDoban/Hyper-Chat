@@ -90,3 +90,39 @@
   right: -20px;
   border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
 }
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Chat-body  card typing
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
+.Chat-body .card .Typing {
+  position: relative;
+  display: flex;
+  gap: 15px;
+}
+.Chat-body .card .Typing .bullet {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: up_and_down 0.9s alternate-reverse ease-in-out infinite;
+  transition: var(--main-transition);
+}
+.Chat-body .card .Typing .bullet:nth-child(1) {
+  background-color: #42b883;
+  animation-delay: 0.4s;
+}
+.Chat-body .card .Typing .bullet:nth-child(2) {
+  background-color: #668ba4;
+  animation-delay: 0.6s;
+}
+.Chat-body .card .Typing .bullet:nth-child(3) {
+  background-color: #347474;
+}
+@keyframes up_and_down {
+  from {
+    transform: translateY(5px);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
