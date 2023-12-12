@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect, useCallback } from "react";
 import "./Request.css";
-import { UserContext } from "../Auth";
+import { UserContext, UserRequests } from "../Auth";
 import { GetName } from "../../../Utils/GetName";
 import Tost_Alert from "../../../Components/Tost_Alert/Tost_Alert";
 import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-function Request() {
+function Request(props) {
   const User = useContext(UserContext);
-  const [Requests, SetRequests] = useState([]);
+  const Requests = useContext(UserRequests);
 
   const GetRequests = useCallback(async () => {
     try {
@@ -26,8 +26,7 @@ function Request() {
           if (res.data.Status === "Faild") {
             Tost_Alert("error", res.data.message);
           } else {
-            console.log("skl");
-            SetRequests(res.data.data);
+            props.SetRequests(res.data.data);
           }
         });
     } catch (err) {

@@ -10,9 +10,12 @@ const Create = lazy(() => import("./Create/Create.jsx"));
 const Request = lazy(() => import("./Request/Request.jsx"));
 
 export const UserContext = createContext();
+export const UserRequests = createContext();
+
 function Auth(props) {
   const { _id, Token } = JSON.parse(localStorage.getItem("Hyper_Chat_Login"));
   const [User, SetUser] = useState({});
+  const [Requests, SetRequests] = useState([]);
 
   useState(() => {
     const GEtUSer = async () => {
@@ -45,20 +48,25 @@ function Auth(props) {
 
   return (
     <UserContext.Provider value={User}>
-      <Suspense fallback={<Loading />}>
-        <div className="Auth">
-          <Sidebar SetLogin={props.SetLogin} />
-          <div className="content">
-            <Routes>
-              <Route path="" element={<Home />} />
-              <Route path="/Chat/:id" />
-              <Route path="/Create" element={<Create />} />
-              <Route path="/Requests" element={<Request />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
+      <UserRequests.Provider value={Requests}>
+        <Suspense fallback={<Loading />}>
+          <div className="Auth">
+            <Sidebar SetLogin={props.SetLogin} Requests={Requests} />
+            <div className="content">
+              <Routes>
+                <Route path="" element={<Home />} />
+                <Route path="/Chat/:id" />
+                <Route path="/Create" element={<Create />} />
+                <Route
+                  path="/Requests"
+                  element={<Request SetRequests={SetRequests} />}
+                />
+                <Route path="*" element={<Home />} />
+              </Routes>
+            </div>
           </div>
-        </div>
-      </Suspense>
+        </Suspense>
+      </UserRequests.Provider>
     </UserContext.Provider>
   );
 }

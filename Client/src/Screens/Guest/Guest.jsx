@@ -13,6 +13,7 @@ function Guest(props) {
           <Routes>
             <Route path="" element={<Login SetLogin={props.SetLogin} />} />
             <Route path="/register" element={<Register />} />
+            <Route path="*" element={<Login SetLogin={props.SetLogin} />} />
           </Routes>
         </Suspense>
       </div>
