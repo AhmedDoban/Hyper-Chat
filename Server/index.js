@@ -51,6 +51,14 @@ io.on("connection", (socket) => {
     const GETUSerSocket = OnlineUsers.get(data.To);
     socket.to(GETUSerSocket).emit("Recive_Message", data.Message);
   });
+  socket.on("Typing", (To) => {
+    const GETUSerSocket = OnlineUsers.get(To);
+    socket.to(GETUSerSocket).emit("Show_Typing_Status");
+  });
+  socket.on("StopTyping", (To) => {
+    const GETUSerSocket = OnlineUsers.get(To);
+    socket.to(GETUSerSocket).emit("Hide_Typing_Status");
+  });
 });
 
 AppServer.listen(4000, () => {
