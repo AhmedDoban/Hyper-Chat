@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ChatUserInfo from "./ChatUserInfo/ChatUserInfo";
 import Body from "./Body/Body";
 import Actions from "./Actions/Actions";
@@ -19,6 +19,7 @@ function Chat() {
   const User = useContext(UserContext);
   const Params = useParams();
   const [Typing, SetTyping] = useState(false);
+  const ScrollRef = useRef();
 
   useEffect(() => {
     Socket.emit("online_user", User._id);
@@ -107,6 +108,20 @@ function Chat() {
   }, [UserInfo]);
 
   useEffect(() => {
+    Socket.on("Show_Typing_Status", () => {
+      ScrollRef.current.scrollTop = ScrollRef.current.scrollHeight;
+      SetTyping(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    Socket.on("Hide_Typing_Status", () => {
+      ScrollRef.current.scrollTop = ScrollRef.current.scrollHeight;
+      SetTyping(false);
+    });
+  }, []);
+
+  useEffect(() => {
     ArriveMessage && SeChat((prev) => [...prev, ArriveMessage]);
   }, [ArriveMessage]);
 
@@ -122,6 +137,7 @@ function Chat() {
           Typing={Typing}
           SetTyping={SetTyping}
           UserInfo={UserInfo}
+          ScrollRef={ScrollRef}
         />
         {/*  Chat action  */}
         <Actions
@@ -130,6 +146,8 @@ function Chat() {
           SetMEssageInput={SetMEssageInput}
           Typing={Typing}
           SetTyping={SetTyping}
+          UserInfo={UserInfo}
+          Socket={Socket}
         />
       </div>
     </React.Fragment>

@@ -19,7 +19,7 @@
   font-size: 16px;
   padding: 20px 20px 20px 30px;
 }
-.chat-action button {
+.chat-action > button {
   position: relative;
   width: 50px;
   padding: 20px;
@@ -35,4 +35,24 @@
 .chat-action button:hover {
   background-color: var(--purple-color);
   color: var(--white-color);
+}
+.chat-action .Emoji {
+  position: relative;
+  width: 55px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chat-action .EmojiPicker {
+  position: absolute;
+  height: 350px !important;
+  z-index: 100 !important;
+  bottom: 55px;
+  left: 15px;
+}
+.EmojiPickerReact .epr-preview {
+  display: none !important;
 }
