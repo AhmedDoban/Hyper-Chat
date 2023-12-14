@@ -9,7 +9,6 @@
   height: 50px;
   padding: 20px 10px;
   width: 100%;
-  backdrop-filter: blur(50px);
 }
 .chat-action input {
   position: relative;
@@ -18,9 +17,9 @@
   border: 0;
   font-size: 16px;
   padding: 20px 10px;
-  background-color: var(--dark-color);
+  background-color: #e6e4e2;
   border-radius: 0.5em;
-  color: var(--white-color);
+  color: var(--dark-color);
 }
 .chat-action > button {
   position: relative;

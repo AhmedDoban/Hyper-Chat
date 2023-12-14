@@ -34,8 +34,7 @@
   gap: 15px;
   height: 77px;
   width: 100%;
-  border-bottom: 1px solid var(--dark-color);
-  backdrop-filter: blur(50px);
+  border-bottom: 1px solid var(--white-color);
 }
 .Create .head h1 {
   color: var(--main-p-color);
@@ -56,7 +55,7 @@
   align-items: center;
   gap: 10px;
   height: 100%;
-  background-color: var(--dark-color);
+  background-color: #e6e4e2;
   padding: 0 10px 0 0;
   border-radius: 0.5em;
 }
@@ -67,7 +66,7 @@
   padding: 10px;
   border: 0;
   background-color: transparent;
-  color: var(--white-color);
+  color: var(--dark-color);
   font-size: 16px;
   border-radius: 0.5em;
 }
@@ -139,7 +138,7 @@
 }
 .Create .conatiner-cards .card h5 {
   position: relative;
-  color: var(--white-color);
+  color: var(--dark-color);
   font-size: 15px;
   transition: var(--main-transition);
 }

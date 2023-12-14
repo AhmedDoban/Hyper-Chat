@@ -78,9 +78,12 @@
   font-size: 15px;
   font-weight: 400;
   transition: var(--main-transition);
+  color: var(--dark-color);
+}
+.Sidebar .Contacts .box.active h5,
+.Sidebar .Contacts .box:hover h5 {
   color: var(--white-color);
 }
-
 @media (max-width: 776px) {
   .Sidebar .Contacts .box h5 {
     display: none;

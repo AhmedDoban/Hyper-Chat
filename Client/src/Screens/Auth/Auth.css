@@ -6,7 +6,10 @@
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: var(--main-bg-home);
+   background-image: url("../../Image/blob_microsoft.svg");
+   background-size: cover;
+   background-repeat: no-repeat;
+
 }
 .Auth .content {
   position: relative;

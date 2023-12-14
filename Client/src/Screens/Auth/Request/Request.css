@@ -32,8 +32,7 @@
   align-items: center;
   height: 77px;
   width: 100%;
-  border-bottom: 1px solid var(--dark-color);
-  backdrop-filter: blur(50px);
+  border-bottom: 1px solid var(--white-color);
 }
 .Request .head h1 {
   color: var(--main-p-color);
@@ -107,7 +106,7 @@
 }
 .Request .conatiner-cards .card h5 {
   position: relative;
-  color: var(--white-color);
+  color: var(--dark-color);
   font-size: 15px;
   transition: var(--main-transition);
 }

@@ -67,8 +67,8 @@
 }
 .Chat-body .card.Left h1 {
   text-align: left;
-  color: var(--white-color);
-  background-color: #333146;
+  color: var(--dark-color);
+  background-color: #e6e4e2;
 }
 .Chat-body .card.Right h1 {
   text-align: right;
@@ -80,16 +80,15 @@
   content: "";
   border-width: 10px;
   border-style: solid;
-
   top: 50%;
   transform: translateY(-50%);
 }
 .Chat-body .card.Left h1::before {
-  left: -20px;
-  border-color: transparent #333146 transparent transparent;
+  left: -19px;
+  border-color: transparent #e6e4e2 transparent transparent;
 }
 .Chat-body .card.Right h1::before {
-  right: -20px;
+  right: -19px;
   border-color: transparent transparent transparent var(--main-alt-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ

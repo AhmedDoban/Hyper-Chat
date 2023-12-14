@@ -9,11 +9,10 @@
   gap: 15px;
   height: 77px;
   width: 100%;
-  border-bottom: 1px solid var(--dark-color);
-  backdrop-filter: blur(50px);
+  border-bottom: 1px solid var(--white-color);
 }
 .ChatUserInfo h1 {
-  color: var(--white-color);
+  color: var(--main-p-color);
   font-size: 20px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ

@@ -150,7 +150,7 @@ function Create() {
             </h1>
             <div className="input-box">
               <input
-                type="search"
+                type="text"
                 placeholder="Enter an user name"
                 value={Search}
                 onChange={(e) => SetSearch(e.target.value)}
@@ -205,7 +205,7 @@ function Create() {
                         className="deleteFriend"
                         onClick={() => HandleDeleteRequest(user._id)}
                       >
-                        <i className="fa-solid fa-user-minus" />
+                        <i className="fa-solid fa-user-slash" />
                       </div>
                     )}
                     {!user.If_User_Friend &&

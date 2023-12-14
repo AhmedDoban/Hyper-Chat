@@ -14,7 +14,7 @@ function Sidebar(props) {
         <div className="head">
           <div className="actions">
             <i className="fa-solid fa-magnifying-glass"></i>
-            <input type="search" placeholder="Search..." />
+            <input type="text" placeholder="Search..." />
           </div>
           <i
             className="fa-solid fa-bars MENUHandlear"

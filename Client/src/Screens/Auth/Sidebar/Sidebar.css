@@ -14,8 +14,7 @@
 }
 .Sidebar .MENUHandlear {
   position: relative;
-  color: var(--white-color);
-  backdrop-filter: blur(50px);
+  color: var(--dark-color);
   display: none;
   justify-content: center;
   align-items: center;
@@ -61,10 +60,11 @@
   width: 100%;
   display: flex;
   align-items: center;
-  color: var(--white-color);
+  color: var(--dark-color);
   gap: 10px;
   transition: var(--main-transition);
 }
+
 @media (max-width: 776px) {
   .Sidebar .head {
     flex-direction: column;
@@ -89,14 +89,14 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
-  color: var(--white-color);
+  color: var(--dark-color);
   width: 100%;
   font-size: 16px;
 }
 .Sidebar .head a {
   position: relative;
   cursor: pointer;
-  color: var(--white-color);
+  color: var(--dark-color);
   font-size: 17px;
   transition: var(--main-transition);
 }
