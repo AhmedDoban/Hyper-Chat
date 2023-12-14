@@ -89,6 +89,12 @@ const Get_User_Contacts = async (Req, Res) => {
       },
       { $unwind: "$User" },
       {
+        $addFields: {
+          "User.name": { $concat: ["$User.FirstName", " ", "$User.LastName"] },
+          "User.User_Name": { $concat: ["$User.FirstName", "$User.LastName"] },
+        },
+      },
+      {
         $project: {
           __v: 0,
           _id: 0,
@@ -113,6 +119,12 @@ const Get_User_Contacts = async (Req, Res) => {
         },
       },
       { $unwind: "$User" },
+      {
+        $addFields: {
+          "User.name": { $concat: ["$User.FirstName", " ", "$User.LastName"] },
+          "User.User_Name": { $concat: ["$User.FirstName", "$User.LastName"] },
+        },
+      },
       {
         $project: {
           __v: 0,
