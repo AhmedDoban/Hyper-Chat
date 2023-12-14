@@ -128,27 +128,29 @@ function Chat() {
   return (
     <React.Fragment>
       <div className="chat">
-        {/*  Chat Head  */}
-        <ChatUserInfo UserInfo={UserInfo} SetUSerInfo={SetUSerInfo} />
-        {/*  Chat body  */}
-        <Body
-          Chat={Chat}
-          SeChat={SeChat}
-          Typing={Typing}
-          SetTyping={SetTyping}
-          UserInfo={UserInfo}
-          ScrollRef={ScrollRef}
-        />
-        {/*  Chat action  */}
-        <Actions
-          HandleSendMessage={HandleSendMessage}
-          MessageInput={MessageInput}
-          SetMEssageInput={SetMEssageInput}
-          Typing={Typing}
-          SetTyping={SetTyping}
-          UserInfo={UserInfo}
-          Socket={Socket}
-        />
+        <div className="Chat-COntainer">
+          {/*  Chat Head  */}
+          <ChatUserInfo UserInfo={UserInfo} SetUSerInfo={SetUSerInfo} />
+          {/*  Chat body  */}
+          <Body
+            Chat={Chat}
+            SeChat={SeChat}
+            Typing={Typing}
+            SetTyping={SetTyping}
+            UserInfo={UserInfo}
+            ScrollRef={ScrollRef}
+          />
+          {/*  Chat action  */}
+          <Actions
+            HandleSendMessage={HandleSendMessage}
+            MessageInput={MessageInput}
+            SetMEssageInput={SetMEssageInput}
+            Typing={Typing}
+            SetTyping={SetTyping}
+            UserInfo={UserInfo}
+            Socket={Socket}
+          />
+        </div>
       </div>
     </React.Fragment>
   );

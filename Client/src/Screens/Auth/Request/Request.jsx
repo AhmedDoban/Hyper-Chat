@@ -95,55 +95,59 @@ function Request(props) {
   return (
     <React.Fragment>
       <div className="Request">
-        <div className="head">
-          <h1>
-            <i className="fa-solid fa-user-group" />
-            Friends Requests
-          </h1>
-        </div>
-        <div className="content">
-          {Requests.length > 0 ? (
-            <div className="conatiner-cards">
-              {Requests.map((Req) => (
-                <div className="card" key={Req._id}>
-                  <div className="img-box">
-                    {UserContext.Logo ? (
-                      <img src={User.Logo} alt="logo" />
-                    ) : (
-                      GetName(Req.User.FirstName, Req.User.LastName)
-                    )}
+        <div className="request-container">
+          <div className="head">
+            <h1>
+              <i className="fa-solid fa-user-group" />
+              Friends Requests
+            </h1>
+          </div>
+          <div className="content">
+            {Requests.length > 0 ? (
+              <div className="conatiner-cards">
+                {Requests.map((Req) => (
+                  <div className="card" key={Req._id}>
+                    <div className="left">
+                      <div className="img-box">
+                        {UserContext.Logo ? (
+                          <img src={User.Logo} alt="logo" />
+                        ) : (
+                          GetName(Req.User.FirstName, Req.User.LastName)
+                        )}
+                      </div>
+                      <h5 className="name">
+                        {Req.User.FirstName} {""}
+                        {Req.User.LastName}
+                      </h5>
+                    </div>
+                    <div className="actions">
+                      <i
+                        className="fa-solid fa-check"
+                        onClick={() => HandleUpdateRequest(Req.From)}
+                      />
+                      <i
+                        className="fa-solid fa-xmark"
+                        onClick={() => HandleDeleteRequest(Req.From)}
+                      />
+                    </div>
                   </div>
-                  <h5 className="name">
-                    {Req.User.FirstName} {""}
-                    {Req.User.LastName}
-                  </h5>
-                  <div className="actions">
-                    <i
-                      className="fa-solid fa-check"
-                      onClick={() => HandleUpdateRequest(Req.From)}
-                    />
-                    <i
-                      className="fa-solid fa-xmark"
-                      onClick={() => HandleDeleteRequest(Req.From)}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="no-Requests">
-              <div className="conatiner">
-                <Player
-                  autoplay={true}
-                  loop={true}
-                  controls={false}
-                  src={require(`../../../Image/FriendRequest.json`)}
-                  className="Player"
-                />
-                <h1>There is no requests </h1>
+                ))}
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="no-Requests">
+                <div className="conatiner">
+                  <Player
+                    autoplay={true}
+                    loop={true}
+                    controls={false}
+                    src={require(`../../../Image/FriendRequest.json`)}
+                    className="Player"
+                  />
+                  <h1>There is no requests </h1>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </React.Fragment>

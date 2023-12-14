@@ -142,98 +142,100 @@ function Create() {
   return (
     <React.Fragment>
       <div className="Create">
-        <div className="head">
-          <h1>
-            <i className="fa-solid fa-user-plus" />
-            Add Friend
-          </h1>
-          <div className="input-box">
-            <input
-              type="search"
-              placeholder="Enter an user name"
-              value={Search}
-              onChange={(e) => SetSearch(e.target.value)}
-            />
-            <i
-              className="fa-solid fa-magnifying-glass"
-              onClick={HandleSearch}
-            />
+        <div className="Create-container">
+          <div className="head">
+            <h1>
+              <i className="fa-solid fa-user-plus" />
+              Add Friend
+            </h1>
+            <div className="input-box">
+              <input
+                type="search"
+                placeholder="Enter an user name"
+                value={Search}
+                onChange={(e) => SetSearch(e.target.value)}
+              />
+              <i
+                className="fa-solid fa-magnifying-glass"
+                onClick={HandleSearch}
+              />
+            </div>
           </div>
-        </div>
-        <div className="content">
-          {Creates.length > 0 ? (
-            <div className="conatiner-cards">
-              {Creates.map((user) => (
-                <div className="card" key={user._id}>
-                  <div className="img-box">
-                    {user.Logo ? (
-                      <img src={user.Logo} alt="logo" />
-                    ) : (
-                      GetName(user.FirstName, user.LastName)
-                    )}
-                  </div>
-                  <h5 className="name">
-                    {user.FirstName} {""}
-                    {user.LastName}
-                  </h5>
-                  {user.If_User_Requested_To && !user.If_User_Friend && (
-                    <div className="actions">
-                      <i
-                        className="fa-solid fa-check"
-                        onClick={() => HandleUpdateRequest(user._id)}
-                      />
-                      <i
-                        className="fa-solid fa-xmark"
-                        onClick={() => HandleDeleteRequest(user._id)}
-                      />
+          <div className="content">
+            {Creates.length > 0 ? (
+              <div className="conatiner-cards">
+                {Creates.map((user) => (
+                  <div className="card" key={user._id}>
+                    <div className="left">
+                      <div className="img-box">
+                        {user.Logo ? (
+                          <img src={user.Logo} alt="logo" />
+                        ) : (
+                          GetName(user.FirstName, user.LastName)
+                        )}
+                      </div>
+                      <h5 className="name">
+                        {user.FirstName} {""}
+                        {user.LastName}
+                      </h5>
                     </div>
-                  )}
-                  {user.If_User_Request && !user.If_User_Friend && (
-                    <div
-                      className="deleteFriend"
-                      onClick={() => HandleDeleteRequest(user._id)}
-                    >
-                      <span>Delete Request</span>
-                      <i className="fa-solid fa-user-minus" />
-                    </div>
-                  )}
-                  {user.If_User_Friend && (
-                    <div
-                      className="deleteFriend"
-                      onClick={() => HandleDeleteRequest(user._id)}
-                    >
-                      <span>Delete Friend</span>
-                      <i className="fa-solid fa-user-minus" />
-                    </div>
-                  )}
-                  {!user.If_User_Friend &&
-                    !user.If_User_Requested_To &&
-                    !user.If_User_Request && (
-                      <div
-                        className="AddFriend"
-                        onClick={() => HandleAddRequest(user._id)}
-                      >
-                        <span>Add Friend</span>
-                        <i className="fa-solid fa-user-plus" />
+
+                    {user.If_User_Requested_To && !user.If_User_Friend && (
+                      <div className="actions">
+                        <i
+                          className="fa-solid fa-check"
+                          onClick={() => HandleUpdateRequest(user._id)}
+                        />
+                        <i
+                          className="fa-solid fa-xmark"
+                          onClick={() => HandleDeleteRequest(user._id)}
+                        />
                       </div>
                     )}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="no-creates">
-              <div className="conatiner">
-                <Player
-                  autoplay={true}
-                  loop={true}
-                  controls={false}
-                  src={require(`../../../Image/looking.json`)}
-                  className="Player"
-                />
-                <h1>Looking for new Friend !!</h1>
+                    {user.If_User_Request && !user.If_User_Friend && (
+                      <div
+                        className="deleteFriend"
+                        onClick={() => HandleDeleteRequest(user._id)}
+                      >
+                        <i className="fa-solid fa-user-minus" />
+                      </div>
+                    )}
+                    {user.If_User_Friend && (
+                      <div
+                        className="deleteFriend"
+                        onClick={() => HandleDeleteRequest(user._id)}
+                      >
+                        <i className="fa-solid fa-user-minus" />
+                      </div>
+                    )}
+                    {!user.If_User_Friend &&
+                      !user.If_User_Requested_To &&
+                      !user.If_User_Request && (
+                        <div
+                          className="AddFriend"
+                          onClick={() => HandleAddRequest(user._id)}
+                        >
+                          <i className="fa-solid fa-user-plus" />
+                        </div>
+                      )}
+                  </div>
+                ))}
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="no-creates">
+                <div className="conatiner">
+                  <Player
+                    autoplay={true}
+                    loop={true}
+                    controls={false}
+                    src={require(`../../../Image/looking.json`)}
+                    className="Player"
+                  />
+                  <h1>Looking for new Friend !!</h1>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </React.Fragment>

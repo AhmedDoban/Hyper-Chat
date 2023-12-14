@@ -6,43 +6,39 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  min-width: 250px;
-  max-width: 250px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-right: 3px solid var(--white-color);
-  backdrop-filter: blur(50px);
+  min-width: 300px;
+  max-width: 300px;
   transition: var(--main-transition);
+  padding: 10px 15px;
+  backdrop-filter: blur(50px);
 }
 .Sidebar .MENUHandlear {
-  position: fixed;
-  top: 15px;
-  left: 101%;
-  width: 25px;
-  height: 25px;
+  position: relative;
   color: var(--white-color);
-  background-color: var(--dark-color);
+  backdrop-filter: blur(50px);
   display: none;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  opacity: 0.5;
   transition: var(--main-transition);
-}
-.Sidebar .MENUHandlear:hover {
-  opacity: 1;
 }
 @media (max-width: 776px) {
   .Sidebar .MENUHandlear {
     display: flex;
   }
   .Sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    z-index: 5;
+    min-width: 60px;
+    max-width: 60px;
+    padding: 5px;
   }
   .Sidebar.active {
+    position: fixed;
+    top: 0;
     left: 0;
+    z-index: 5;
+    min-width: 300px;
+    max-width: 300px;
+    padding: 10px 15px;
   }
 }
 
@@ -58,34 +54,53 @@
   justify-content: space-between;
   gap: 10px;
   padding: 20px;
-  border-bottom: 3px solid var(--white-color);
   transition: var(--main-transition);
 }
-.Sidebar .head .logo {
+.Sidebar .head .actions {
   position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
+  color: var(--white-color);
   gap: 10px;
-}
-.Sidebar .head img {
-  position: relative;
-  width: 35px;
-  height: 35px;
-}
-.Sidebar .head h1 {
-  position: relative;
-  color: var(--dark-color);
-  font-size: 20px;
   transition: var(--main-transition);
+}
+@media (max-width: 776px) {
+  .Sidebar .head {
+    flex-direction: column;
+    align-items: center;
+    height: 116px;
+  }
+  .Sidebar.active .head {
+    flex-direction: row;
+    align-items: center;
+    height: 77px;
+  }
+  .Sidebar .head .actions {
+    display: none;
+  }
+  .Sidebar.active .head .actions {
+    display: flex;
+  }
+}
+
+.Sidebar .head .actions input {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--white-color);
+  width: 100%;
+  font-size: 16px;
 }
 .Sidebar .head a {
   position: relative;
   cursor: pointer;
-  color: var(--dark-color);
+  color: var(--white-color);
   font-size: 17px;
   transition: var(--main-transition);
 }
 .Sidebar .head a:hover,
 .Sidebar .head a.active {
-  color: var(--purple-color);
+  color: var(--main-color);
 }

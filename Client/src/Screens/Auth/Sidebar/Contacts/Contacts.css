@@ -1,31 +1,54 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Contacts
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Contacts {
+.Sidebar .Contacts {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 8px;
   height: calc(100vh - 150px);
   overflow-y: auto;
+  overflow-x: hidden;
 }
+@media (max-width: 776px) {
+  .Sidebar .Contacts {
+    height: calc(100vh - 235px);
+  }
+  .Sidebar.active .Contacts {
+    height: calc(100vh - 150px);
+  }
+}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Contacts box
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Contacts .box {
+.Sidebar .Contacts .box {
   position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 10px;
   transition: var(--main-transition);
+  border-radius: 5px;
+  background-color: var(--main-chat-color);
 }
-.Contacts .box.active,
-.Contacts .box:hover {
+@media (max-width: 776px) {
+  .Sidebar .Contacts .box {
+    padding: 5px;
+    justify-content: center;
+  }
+  .Sidebar.active .Contacts .box {
+    padding: 10px;
+    justify-content: flex-start;
+  }
+}
+
+.Sidebar .Contacts .box.active,
+.Sidebar .Contacts .box:hover {
   position: relative;
-  background-color: #d5d5d5;
+  background-color: var(--main-alt-color);
 }
-.Contacts .box .img-box {
+.Sidebar .Contacts .box .img-box {
   position: relative;
   width: 35px;
   height: 35px;
@@ -38,19 +61,31 @@
   font-weight: bold;
   transition: var(--main-transition);
 }
-.Contacts .box.active .img-box,
-.Contacts .box:hover .img-box {
-  background-color: var(--purple-color);
+.Sidebar .Contacts .box.active .img-box,
+.Sidebar .Contacts .box:hover .img-box {
+  background-color: var(--white-color);
+  color: var(--main-color);
 }
-.Contacts .box .img-box img {
+.Sidebar .Contacts .box .img-box img {
   position: relative;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
-.Contacts .box h5 {
+.Sidebar .Contacts .box h5 {
   position: relative;
-  color: var(--dark-color);
   font-size: 15px;
+  font-weight: 400;
+  transition: var(--main-transition);
+  color: var(--white-color);
+}
+
+@media (max-width: 776px) {
+  .Sidebar .Contacts .box h5 {
+    display: none;
+  }
+  .Sidebar.active .Contacts .box h5 {
+    display: block;
+  }
 }

@@ -9,12 +9,11 @@
   gap: 15px;
   height: 77px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-bottom: 3px solid var(--white-color);
+  border-bottom: 1px solid var(--dark-color);
   backdrop-filter: blur(50px);
 }
 .ChatUserInfo h1 {
-  color: var(--dark-color);
+  color: var(--white-color);
   font-size: 20px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -25,7 +24,7 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: var(--purple-color);
+  background-color: var(--main-p-color);
   display: flex;
   justify-content: center;
   align-items: center;

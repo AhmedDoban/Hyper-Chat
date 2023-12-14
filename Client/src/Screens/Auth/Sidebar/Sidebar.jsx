@@ -10,16 +10,16 @@ function Sidebar(props) {
   return (
     <React.Fragment>
       <div className={Active ? "Sidebar active" : "Sidebar"}>
-        <i
-          className="fa-solid fa-bars MENUHandlear"
-          onClick={() => SetActive((prev) => !prev)}
-        />
         {/**************************** Head section *********************************/}
         <div className="head">
-          <div className="logo">
-            <img src={require("../../../Image/icon.png")} alt="icon" />
-            <h1>Hyper Chat</h1>
+          <div className="actions">
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search..." />
           </div>
+          <i
+            className="fa-solid fa-bars MENUHandlear"
+            onClick={() => SetActive((prev) => !prev)}
+          />
           <NavLink to="/Create">
             <i className="fa-regular fa-pen-to-square " />
           </NavLink>

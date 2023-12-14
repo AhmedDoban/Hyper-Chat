@@ -6,15 +6,17 @@ function Home() {
   return (
     <React.Fragment>
       <div className="Home">
-        <div className="conatiner">
-          <Player
-            autoplay={true}
-            loop={true}
-            controls={false}
-            src={require(`../../../Image/NoChat.json`)}
-            className="PlayerHome"
-          />
-          <h1>Welcome again ! Seclect an chat to start</h1>
+        <div className="Home-container">
+          <div className="conatiner">
+            <Player
+              autoplay={true}
+              loop={true}
+              controls={false}
+              src={require(`../../../Image/NoChat.json`)}
+              className="PlayerHome"
+            />
+            <h1>Welcome again ! Seclect an chat to start</h1>
+          </div>
         </div>
       </div>
     </React.Fragment>

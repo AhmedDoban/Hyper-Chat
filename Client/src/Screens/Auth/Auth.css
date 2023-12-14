@@ -3,10 +3,10 @@
   display: flex;
   width: 100%;
   height: 100vh;
-  background-image: url("../../Image/blob_microsoft.svg");
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: var(--main-bg-home);
 }
 .Auth .content {
   position: relative;

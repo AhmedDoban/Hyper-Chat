@@ -5,7 +5,7 @@
   position: relative;
   width: 100%;
   padding: 20px;
-  height: calc(100vh - 127px);
+  height: calc(100vh - 220px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@
   font-weight: bold;
 }
 .Chat-body .card.Left .img-box {
-  background-color: var(--purple-color);
+  background-color: var(--main-p-color);
 }
 .Chat-body .card .img-box img {
   position: relative;
@@ -60,8 +60,6 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Chat-body .card h1 {
   position: relative;
-  color: var(--dark-color);
-  background-color: rgba(255, 255, 255, 0.5);
   font-size: 18px;
   padding: 8px 12px;
   font-weight: normal;
@@ -69,9 +67,13 @@
 }
 .Chat-body .card.Left h1 {
   text-align: left;
+  color: var(--white-color);
+  background-color: #333146;
 }
 .Chat-body .card.Right h1 {
   text-align: right;
+  color: var(--white-color);
+  background-color: var(--main-alt-color);
 }
 .Chat-body .card h1::before {
   position: absolute;
@@ -84,11 +86,11 @@
 }
 .Chat-body .card.Left h1::before {
   left: -20px;
-  border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
+  border-color: transparent #333146 transparent transparent;
 }
 .Chat-body .card.Right h1::before {
   right: -20px;
-  border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
+  border-color: transparent transparent transparent var(--main-alt-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
  # Chat-body  card typing

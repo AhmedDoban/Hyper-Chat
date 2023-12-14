@@ -8,9 +8,23 @@
   align-items: center;
   min-width: 100%;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.5);
 }
-
+.Home .Home-container {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 90%;
+  border-radius: 1em;
+  background-color: var(--main-chat-color);
+}
+@media (max-width: 776px) {
+  .Home .Home-container {
+    height: 95%;
+  }
+}
 .Home .conatiner {
   position: relative;
   display: flex;
@@ -22,6 +36,7 @@
   font-size: 18px;
   color: var(--dark-color);
   transition: var(--main-transition);
+  text-align: center;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # PlayerHome
@@ -30,4 +45,10 @@
   position: relative;
   width: 350px;
   height: 350px;
+}
+@media (max-width: 776px) {
+  .Home .conatiner .PlayerHome {
+    width: 300px;
+    height: 300px;
+  }
 }

@@ -4,6 +4,23 @@
 .Create {
   position: relative;
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Create .Create-container {
+  position: relative;
+  width: 95%;
+  height: 90%;
+  border-radius: 1em;
+  overflow: hidden;
+  background-color: var(--main-chat-color);
+}
+@media (max-width: 776px) {
+  .Create .Create-container {
+    height: 95%;
+  }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Create head
@@ -17,17 +34,19 @@
   gap: 15px;
   height: 77px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-bottom: 3px solid var(--white-color);
+  border-bottom: 1px solid var(--dark-color);
   backdrop-filter: blur(50px);
 }
 .Create .head h1 {
-  color: var(--dark-color);
+  color: var(--main-p-color);
   font-size: 20px;
   display: flex;
   align-items: center;
   gap: 15px;
   min-width: fit-content;
+}
+.Create .head h1 i {
+  color: var(--main-color);
 }
 
 .Create .head .input-box {
@@ -37,7 +56,7 @@
   align-items: center;
   gap: 10px;
   height: 100%;
-  background-color: var(--white-color);
+  background-color: var(--dark-color);
   padding: 0 10px 0 0;
   border-radius: 0.5em;
 }
@@ -47,14 +66,14 @@
   height: 100%;
   padding: 10px;
   border: 0;
-  background-color: var(--white-color);
-  color: var(--dark-color);
+  background-color: transparent;
+  color: var(--white-color);
   font-size: 16px;
   border-radius: 0.5em;
 }
 .Create .head .input-box i {
   position: relative;
-  color: var(--dark-color);
+  color: var(--main-color);
   cursor: pointer;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -64,18 +83,23 @@
   position: relative;
   height: calc(100vh - 77px);
   overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.5);
+  overflow-x: hidden;
 }
 .Create .conatiner-cards {
   position: relative;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   gap: 15px;
+}
+@media (max-width: 776px) {
+  .Create .conatiner-cards {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
     # Create card
-    ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Create .conatiner-cards .card {
   position: relative;
   width: 100%;
@@ -83,12 +107,16 @@
   padding: 20px;
   border-radius: 0.5em;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
   gap: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(50px);
+  background-color: #80808027;
+}
+.Create .conatiner-cards .card .left {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .Create .conatiner-cards .card .img-box {
   position: relative;
@@ -111,7 +139,7 @@
 }
 .Create .conatiner-cards .card h5 {
   position: relative;
-  color: var(--dark-color);
+  color: var(--white-color);
   font-size: 15px;
   transition: var(--main-transition);
 }
@@ -129,7 +157,7 @@
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  border-radius: 50%;
+  border-radius: 0.5em;
   color: var(--white-color);
   cursor: pointer;
   transition: var(--main-transition);
@@ -172,15 +200,9 @@
 .Create .conatiner-cards .card .deleteFriend i,
 .Create .conatiner-cards .card .AddFriend i {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 14px;
-  border-radius: 50%;
   color: var(--white-color);
-  cursor: pointer;
   transition: var(--main-transition);
-  opacity: 0.5;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # no-creates
