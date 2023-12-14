@@ -27,6 +27,7 @@ function Contacts(props) {
             Tost_Alert("error", res.data.message);
           } else {
             SetContacts(res.data.data);
+            console.log(res.data.data);
           }
         });
     } catch (err) {
@@ -41,7 +42,15 @@ function Contacts(props) {
   return (
     <React.Fragment>
       <div className="Contacts">
-        {Contacts.map((Contact) => (
+        {Contacts.filter((Contact) => {
+          if (props.Search !== "") {
+            return Contact.User.name
+              .toLowerCase()
+              .includes(props.Search.toLowerCase());
+          } else {
+            return Contact;
+          }
+        }).map((Contact) => (
           <NavLink
             className="box"
             to={`/Chat/${Contact.User._id}`}

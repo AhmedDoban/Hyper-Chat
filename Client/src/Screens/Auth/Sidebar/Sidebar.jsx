@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar(props) {
   const [Active, SetActive] = useState(false);
+  const [Search, SetSearch] = useState("");
 
   return (
     <React.Fragment>
@@ -14,7 +15,12 @@ function Sidebar(props) {
         <div className="head">
           <div className="actions">
             <i className="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search..." />
+            <input
+              type="text"
+              placeholder="Search..."
+              value={Search}
+              onChange={(e) => SetSearch(e.target.value)}
+            />
           </div>
           <i
             className="fa-solid fa-bars MENUHandlear"
@@ -30,7 +36,7 @@ function Sidebar(props) {
         {/******************************End *******************************/}
 
         {/****************************** Contacts *******************************/}
-        <Contacts Requests={props.Requests} />
+        <Contacts Requests={props.Requests} Search={Search} />
         {/******************************End *******************************/}
 
         {/******************************** Setting *****************************/}
