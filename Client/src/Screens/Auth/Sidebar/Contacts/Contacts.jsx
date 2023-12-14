@@ -1,13 +1,12 @@
-import React, { useContext, useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Contacts.css";
-import { UserContext } from "../../Auth";
 import { NavLink } from "react-router-dom";
 import { GetName } from "../../../../Utils/GetName";
 import axios from "axios";
 import Tost_Alert from "../../../../Components/Tost_Alert/Tost_Alert";
 
 function Contacts(props) {
-  const User = useContext(UserContext);
+  const { _id, Token } = JSON.parse(localStorage.getItem("Hyper_Chat_Login"));
   const [Contacts, SetContacts] = useState([]);
 
   const GetContacts = useCallback(async () => {
@@ -15,10 +14,10 @@ function Contacts(props) {
       await axios
         .post(
           `${process.env.REACT_APP_API}/Request/GetContacts`,
-          { _id: User._id },
+          { _id: _id },
           {
             headers: {
-              Authorization: User.Token,
+              Authorization: Token,
             },
           }
         )
@@ -33,11 +32,11 @@ function Contacts(props) {
     } catch (err) {
       Tost_Alert("error", "Sorry , Can't get your data !");
     }
-  }, [User._id, User.Token]);
+  }, [_id, Token]);
 
   useEffect(() => {
     GetContacts();
-  }, [User._id, User.Token, GetContacts, props.Requests]);
+  }, [_id, Token, GetContacts, props.Requests]);
 
   return (
     <React.Fragment>
