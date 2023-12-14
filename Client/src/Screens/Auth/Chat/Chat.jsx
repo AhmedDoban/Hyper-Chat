@@ -19,7 +19,17 @@ function Chat() {
   const User = useContext(UserContext);
   const Params = useParams();
   const [Typing, SetTyping] = useState(false);
-  const ScrollRef = useRef();
+
+  function useChatScroll(dep) {
+    const ref = useRef();
+    useEffect(() => {
+      if (ref.current !== undefined) {
+        ref.current.scrollTop = ref.current.scrollHeight;
+      }
+    }, [dep]);
+    return ref;
+  }
+  const ScrollRef = useChatScroll(Chat);
 
   useEffect(() => {
     Socket.emit("online_user", User._id);

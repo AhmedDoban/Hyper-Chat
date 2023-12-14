@@ -1,14 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./Body.css";
 import { GetName } from "../../../../Utils/GetName";
 import { UserContext } from "../../Auth";
 
 function Body(props) {
   const User = useContext(UserContext);
-
-  useEffect(() => {
-    props.ScrollRef.current.scrollTop = props.ScrollRef.current.scrollHeight;
-  }, [props.Chat, props.ScrollRef]);
 
   return (
     <React.Fragment>
